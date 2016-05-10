@@ -6,6 +6,12 @@ describe 'App' do
   it 'responds successfully' do
     get '/'
 
+    expect(last_response).to be_redirect
+  end
+
+  it '/holidays responds successfully' do
+    get '/holidays'
+
     expect(last_response).to be_ok
   end
 end

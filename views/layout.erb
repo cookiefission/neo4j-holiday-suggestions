@@ -12,6 +12,7 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <a href="/"><button class="btn btn-primary">Home</button></a>
+            <button class="btn btn-default" disabled>Session token: <%= session[:user_token] or '(none)' %></button>
             <a href="/fresh_session"><button class="btn btn-danger">Fresh Session</button></a>
           </div>
           <div class="panel-body">
