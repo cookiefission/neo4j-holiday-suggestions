@@ -1,4 +1,7 @@
 require './models/holiday'
+require 'neo4j'
+
+Neo4j::Session.open(:server_db)
 
 enable :sessions
 
