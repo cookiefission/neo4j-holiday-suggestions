@@ -10,8 +10,8 @@
   <tbody>
     <% @holidays.each do |holiday| %>
       <tr class="holiday-row">
-        <td><a href="/holidays/<%= holiday['region'] %>"><%= holiday['region'] %></a></td>
-        <td>£<%= holiday['price'] %></td>
+        <td><a href="/holidays/<%= holiday.name %>"><%= holiday.name %></a></td>
+        <td>£<%= holiday.price %></td>
       </tr>
     <% end %>
   </tbody>

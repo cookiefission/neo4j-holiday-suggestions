@@ -1,6 +1,5 @@
 require 'neo4j'
 
-require './models/holiday'
 require './models/user'
 require './models/destination'
 require './models/searched_for'
@@ -22,18 +21,17 @@ get '/' do
 end
 
 get '/holidays' do
-  @holidays = Holiday.all
+  @holidays = Destination.all
 
   erb :index
 end
 
 get '/holidays/:region' do
-  @holiday = Holiday.find(params[:region]) or redirect to('/')
+  @holiday = Destination.find_by(name: params[:region]) or redirect to('/')
 
   user = User.find_by(token: session[:user_token])
-  destination = Destination.find_by(name: params[:region])
 
-  SearchedFor.create!(from_node: user, to_node: destination)
+  SearchedFor.create!(from_node: user, to_node: @holiday)
 
   erb :holiday
 end

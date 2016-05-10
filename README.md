@@ -1,4 +1,4 @@
-# Suggestions
+# Neo4j Holiday Suggestions
 
 Experimental holiday recommendations driven by neo4j
 
