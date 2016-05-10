@@ -10,6 +10,7 @@ enable :sessions
 before '/holidays*' do
   if session[:user_token].nil?
     session[:user_token] = (0...8).map { (65 + rand(26)).chr  }.join
+
     User.create!(token: session[:user_token])
   end
 end
