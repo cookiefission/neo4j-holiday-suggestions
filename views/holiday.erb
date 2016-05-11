@@ -1,6 +1,6 @@
-<h1>Holiday to <%= @holiday['region'] %></h1>
+<h1>Holiday to <%= @holiday.name %></h1>
 
-<p>That'll set you back £<%= @holiday['price'] %></p>
+<p>That'll set you back £<%= @holiday.price %></p>
 
 <% if @suggestions.any? %>
 <h3>Some suggestions</h3>

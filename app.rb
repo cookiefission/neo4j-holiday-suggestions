@@ -32,7 +32,9 @@ get '/holidays/:region' do
   user = User.find_by(token: session[:user_token])
   SearchedFor.create!(from_node: user, to_node: @holiday)
 
-  @suggestions = []
+  @suggestions = @holiday.query_as(:h).match(
+    "h<-[:searched_for]-(u:User)-[:searched_for]->(d:Destination)"
+  ).where('u.token <> ?', user.token).where('d.name <> ?', @holiday.name).pluck(:d)
 
   erb :holiday
 end
