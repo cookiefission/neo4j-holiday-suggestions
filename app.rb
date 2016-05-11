@@ -30,8 +30,9 @@ get '/holidays/:region' do
   @holiday = Destination.find_by(name: params[:region]) or redirect to('/')
 
   user = User.find_by(token: session[:user_token])
-
   SearchedFor.create!(from_node: user, to_node: @holiday)
+
+  @suggestions = []
 
   erb :holiday
 end
