@@ -5,4 +5,6 @@ class SearchedFor
   to_class :Destination
   type :searched_for
 
+  creates_unique on: [:from_node, :to_node]
+
 end
